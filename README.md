@@ -1,4 +1,4 @@
-# RaumreservierungsSystem
+# ÜK M223 Raumreservierungs System
 
 Ein Webapplikations-Projekt für die Verwaltung und Bearbeitung von Raumreservierungen. Mit dieser Anwendung können Benutzer Räume reservieren, bestehende Reservierungen anzeigen, bearbeiten oder löschen und Schlüssel für die Verwaltung und Einsicht von Reservierungen generieren.
 
