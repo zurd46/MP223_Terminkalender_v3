@@ -204,17 +204,21 @@ namespace RaumReservierungsSystem.Controllers
 
         public IActionResult Access(string key)
         {
+            // Suche nach der Reservation anhand des Schlüssels
             var reservation = _context.Reservations.FirstOrDefault(r => r.PrivateKey == key || r.PublicKey == key);
+
             if (reservation == null)
             {
-                return RedirectToAction("InvalidKey");
+                return RedirectToAction("InvalidKey"); // Weiterleitung bei ungültigem Schlüssel
             }
 
+            // Private Key: Zur Bearbeitungsseite
             if (reservation.PrivateKey == key)
             {
                 return RedirectToAction("Edit", new { id = reservation.Id });
             }
 
+            // Public Key: Zur Ansichtseite
             if (reservation.PublicKey == key)
             {
                 return RedirectToAction("View", new { id = reservation.Id });
@@ -222,6 +226,7 @@ namespace RaumReservierungsSystem.Controllers
 
             return RedirectToAction("InvalidKey");
         }
+
 
         public IActionResult View(Guid id)
         {
