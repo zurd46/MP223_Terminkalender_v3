@@ -20,5 +20,5 @@ Ein Webapplikations-Projekt für die Verwaltung und Bearbeitung von Raumreservie
 
 1. **Repository klonen**:
    ```bash
-   git clone https://github.com/benutzername/raumreservierungssystem.git
-   cd raumreservierungssystem
+   git clone https://github.com/zurd46/MP223_Terminkalender_v3.git
+   cd MP223_Terminkalender_v3
