@@ -1,0 +1,59 @@
+# Allgemeine .NET-Builddateien
+bin/
+obj/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Paketmanager
+.nuget/
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# Logs, Debugging und temporäre Dateien
+*.log
+*.tlog
+*.out
+*.VSCodeCounter
+*.tmp
+.vscode/settings.json
+
+# Datenbanken
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+# Verschiedene ASP.NET Core-Dateien
+Properties/launchSettings.json
+
+# Umgebungsvariablen und Secrets
+*.env
+secrets.json
+
+# IDE- und Editor-spezifische Dateien
+.vscode/
+.idea/
+*.code-workspace
+*.vs/
+
+# Betriebssystem-spezifische Dateien
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Sicherungen und Backups
+*.bak
+*.old
+*.swp
+
+# Rider
+.idea/
+*.sln.iml
+
+# ReSharper
+_ReSharper/
