@@ -25,8 +25,8 @@ project.fragment.lock.json
 # Datenbanken
 *.mdf
 *.ldf
-*.db-shm
-*.db-wal
+.db-shm
+.db-wal
 
 # Umgebungsvariablen und Secrets
 *.env
