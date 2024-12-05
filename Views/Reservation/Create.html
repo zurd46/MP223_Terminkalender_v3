@@ -36,7 +36,7 @@
         <!-- Fehlermeldung -->
         <div id="errorMessage" class="alert alert-danger d-none"></div>
 
-        <form method="post" action="/Reservation/Create">
+        <form id="reservationForm" method="post" action="/Reservation/Create">
             <!-- Datum, Von, Bis - Horizontal nebeneinander -->
             <div class="row mb-3">
                 <div class="col-md-4">
@@ -79,6 +79,7 @@
             <div class="mb-3">
                 <label for="participants" class="form-label text-light">Teilnehmer:</label>
                 <textarea id="participants" name="Participants" class="form-control" rows="3" placeholder="Teilnehmer nur mit Buchstaben [A-Z][Aa-Zz] und Trennzeichen: Komma" required></textarea>
+                <small class="form-text text-muted">Bitte trennen Sie Teilnehmer durch Kommas. Nur Buchstaben sind erlaubt.</small>
             </div>
 
             <!-- Speichern Button -->
@@ -95,6 +96,34 @@
             errorMessageDiv.classList.remove('d-none');
             errorMessageDiv.textContent = error;
         }
+
+        // Client-seitige Validierung
+        document.getElementById('reservationForm').addEventListener('submit', function (event) {
+            const participantsInput = document.getElementById('participants').value.trim();
+            const participantPattern = /^[A-Za-z]+(,\s*[A-Za-z]+)*$/;
+
+            const remarksInput = document.getElementById('remarks').value.trim();
+            const remarksPattern = /^[a-zA-Z0-9\s]+$/;
+
+            let errorMessage = "";
+
+            // Teilnehmer-Validierung
+            if (!participantPattern.test(participantsInput)) {
+                errorMessage = "Die Teilnehmerliste darf nur Buchstaben enthalten, getrennt durch Kommas.";
+            }
+
+            // Bemerkung-Validierung
+            if (!remarksPattern.test(remarksInput) || remarksInput.length < 10 || remarksInput.length > 200) {
+                errorMessage = "Die Bemerkung muss zwischen 10 und 200 alphanumerischen Zeichen enthalten.";
+            }
+
+            if (errorMessage) {
+                event.preventDefault();
+                const errorMessageDiv = document.getElementById('errorMessage');
+                errorMessageDiv.classList.remove('d-none');
+                errorMessageDiv.textContent = errorMessage;
+            }
+        });
     </script>
 </body>
 </html>

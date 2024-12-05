@@ -36,7 +36,7 @@
         <!-- Fehlermeldung -->
         <div id="errorMessage" class="alert alert-danger d-none"></div>
 
-        <form method="post" action="/Reservation/Edit">
+        <form id="reservationForm" method="post" action="/Reservation/Edit">
             <!-- Hidden Input für die ID -->
             <input type="hidden" name="Id" value="{{Id}}">
 
@@ -72,12 +72,14 @@
             <div class="mb-3">
                 <label for="remarks" class="form-label text-light">Bemerkung:</label>
                 <textarea id="remarks" name="Remarks" class="form-control" rows="3" required>{{Remarks}}</textarea>
+                <small class="form-text text-muted">Bitte geben Sie eine Bemerkung mit 10 bis 200 alphanumerischen Zeichen ein.</small>
             </div>
 
             <!-- Teilnehmer -->
             <div class="mb-3">
                 <label for="participants" class="form-label text-light">Teilnehmer:</label>
                 <textarea id="participants" name="Participants" class="form-control" rows="3" required>{{Participants}}</textarea>
+                <small class="form-text text-muted">Bitte trennen Sie Teilnehmer durch Kommas. Nur Buchstaben sind erlaubt.</small>
             </div>
 
             <!-- Speichern Button -->
@@ -94,6 +96,20 @@
             errorMessageDiv.classList.remove('d-none');
             errorMessageDiv.textContent = error;
         }
+
+        // Client-seitige Validierung
+        const form = document.getElementById('reservationForm');
+        form.addEventListener('submit', (event) => {
+            const participantsInput = document.getElementById('participants').value.trim();
+            const participantPattern = /^[A-Za-z]+(,\s*[A-Za-z]+)*$/;
+
+            if (!participantPattern.test(participantsInput)) {
+                event.preventDefault();
+                const errorMessageDiv = document.getElementById('errorMessage');
+                errorMessageDiv.classList.remove('d-none');
+                errorMessageDiv.textContent = "Die Teilnehmerliste darf nur Buchstaben enthalten, getrennt durch Kommas.";
+            }
+        });
     </script>
 </body>
 </html>
