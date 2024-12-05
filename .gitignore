@@ -28,9 +28,6 @@ project.fragment.lock.json
 *.sqlite
 *.db
 
-# Verschiedene ASP.NET Core-Dateien
-Properties/launchSettings.json
-
 # Umgebungsvariablen und Secrets
 *.env
 secrets.json
