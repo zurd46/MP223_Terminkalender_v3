@@ -26,41 +26,74 @@
                     </li>
                 </ul>
             </div>
-            <a href="/Reservation/Create" class="btn btn-success">+ Neue Reservation</a>
         </div>
     </nav>
+
+    <!-- Hauptinhalt -->
     <div class="container my-5">
         <h1 class="text-light">Reservation bearbeiten</h1>
+
+        <!-- Fehlermeldung -->
+        <div id="errorMessage" class="alert alert-danger d-none"></div>
+
         <form method="post" action="/Reservation/Edit">
+            <!-- Hidden Input für die ID -->
             <input type="hidden" name="Id" value="{{Id}}">
-            <div class="mb-3">
-                <label for="participants" class="form-label text-light">Teilnehmer:</label>
-                <input type="text" id="participants" name="Participants" class="form-control" value="{{Participants}}" required>
+
+            <!-- Datum, Von, Bis - Horizontal nebeneinander -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="date" class="form-label text-light">Datum:</label>
+                    <input type="date" id="date" name="Date" class="form-control" value="{{Date}}" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="startTime" class="form-label text-light">Von:</label>
+                    <input type="time" id="startTime" name="StartTime" class="form-control" value="{{StartTime}}" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="endTime" class="form-label text-light">Bis:</label>
+                    <input type="time" id="endTime" name="EndTime" class="form-control" value="{{EndTime}}" required>
+                </div>
             </div>
+
+            <!-- Zimmer -->
             <div class="mb-3">
                 <label for="roomNumber" class="form-label text-light">Zimmer:</label>
                 <select id="roomNumber" name="RoomNumber" class="form-select" required>
-                    <option value="101" {{RoomNumber == "101" ? "selected" : ""}}>101</option>
-                    <option value="102" {{RoomNumber == "102" ? "selected" : ""}}>102</option>
-                    <option value="103" {{RoomNumber == "103" ? "selected" : ""}}>103</option>
-                    <option value="104" {{RoomNumber == "104" ? "selected" : ""}}>104</option>
-                    <option value="105" {{RoomNumber == "105" ? "selected" : ""}}>105</option>
+                    <option value="101" {{Room101Selected}}>101</option>
+                    <option value="102" {{Room102Selected}}>102</option>
+                    <option value="103" {{Room103Selected}}>103</option>
+                    <option value="104" {{Room104Selected}}>104</option>
+                    <option value="105" {{Room105Selected}}>105</option>
                 </select>
             </div>
+
+            <!-- Bemerkung -->
             <div class="mb-3">
-                <label for="date" class="form-label text-light">Datum:</label>
-                <input type="date" id="date" name="Date" class="form-control" value="{{Date}}" required>
+                <label for="remarks" class="form-label text-light">Bemerkung:</label>
+                <textarea id="remarks" name="Remarks" class="form-control" rows="3" required>{{Remarks}}</textarea>
             </div>
+
+            <!-- Teilnehmer -->
             <div class="mb-3">
-                <label for="startTime" class="form-label text-light">Von:</label>
-                <input type="time" id="startTime" name="StartTime" class="form-control" value="{{StartTime}}" required>
+                <label for="participants" class="form-label text-light">Teilnehmer:</label>
+                <textarea id="participants" name="Participants" class="form-control" rows="3" required>{{Participants}}</textarea>
             </div>
-            <div class="mb-3">
-                <label for="endTime" class="form-label text-light">Bis:</label>
-                <input type="time" id="endTime" name="EndTime" class="form-control" value="{{EndTime}}" required>
-            </div>
-            <button type="submit" class="btn btn-success">Speichern</button>
+
+            <!-- Speichern Button -->
+            <button type="submit" class="btn btn-primary">Speichern</button>
         </form>
     </div>
+
+    <script>
+        // Fehlermeldung aus der URL lesen und anzeigen
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get('error');
+        if (error) {
+            const errorMessageDiv = document.getElementById('errorMessage');
+            errorMessageDiv.classList.remove('d-none');
+            errorMessageDiv.textContent = error;
+        }
+    </script>
 </body>
 </html>

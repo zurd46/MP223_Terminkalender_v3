@@ -115,6 +115,9 @@ namespace RaumReservierungsSystem.Controllers
             htmlContent = htmlContent.Replace("{{Date}}", reservation.Date.ToString("yyyy-MM-dd"));
             htmlContent = htmlContent.Replace("{{StartTime}}", reservation.StartTime.ToString(@"hh\:mm"));
             htmlContent = htmlContent.Replace("{{EndTime}}", reservation.EndTime.ToString(@"hh\:mm"));
+            htmlContent = htmlContent.Replace("{{Remarks}}", reservation.Remarks.ToString());
+            htmlContent = htmlContent.Replace("{{PrivateKey}}", reservation.PrivateKey.ToString());
+            htmlContent = htmlContent.Replace("{{PublicKey}}", reservation.PublicKey.ToString());
 
             // HTML-Seite zurückgeben
             return Content(htmlContent, "text/html");
@@ -213,6 +216,9 @@ namespace RaumReservierungsSystem.Controllers
             htmlContent = htmlContent.Replace("{{Date}}", reservation.Date.ToString("yyyy-MM-dd"));
             htmlContent = htmlContent.Replace("{{StartTime}}", reservation.StartTime.ToString(@"hh\:mm"));
             htmlContent = htmlContent.Replace("{{EndTime}}", reservation.EndTime.ToString(@"hh\:mm"));
+            htmlContent = htmlContent.Replace("{{Remarks}}", reservation.Remarks.ToString());
+            htmlContent = htmlContent.Replace("{{PrivateKey}}", reservation.PrivateKey.ToString());
+            htmlContent = htmlContent.Replace("{{PublicKey}}", reservation.PublicKey.ToString());
 
             // HTML-Seite zurückgeben
             return Content(htmlContent, "text/html");

@@ -30,6 +30,9 @@ namespace RaumReservierungsSystem.Controllers
                         <td>{reservation.Date:dd.MM.yyyy}</td>
                         <td>{reservation.StartTime}</td>
                         <td>{reservation.EndTime}</td>
+                        <td>{reservation.Remarks}</td>
+                        <td>{reservation.PrivateKey}</td>
+                        <td>{reservation.PublicKey}</td>
                         <td>
                             <a href='/Reservation/Edit/{reservation.Id}' class='btn btn-warning btn-sm'>Bearbeiten</a>
                         </td>
