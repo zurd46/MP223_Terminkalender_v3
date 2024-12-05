@@ -45,7 +45,7 @@ namespace RaumReservierungsSystem.Controllers
             // Validierung der Bemerkung
             if (string.IsNullOrWhiteSpace(reservation.Remarks) || reservation.Remarks.Length < 10 || reservation.Remarks.Length > 200)
             {
-                return Redirect($"/Reservation/Create?error=Die Bemerkung muss zwischen 10 und 200 Zeichen lang sein.");
+                return Redirect($"/Reservation/Create?error=Die Bemerkung muss zwischen 10 und 200 Zeichen enthalten.");
             }
 
             // Validierung der Teilnehmer
