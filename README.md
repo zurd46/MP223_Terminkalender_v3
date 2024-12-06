@@ -1,6 +1,8 @@
-# ÜK M223 Raumreservierungs System
+# ÜK M223 Raumreservierungs-System
 
-Ein Webapplikations-Projekt für die Verwaltung und Bearbeitung von Raumreservierungen. Mit dieser Anwendung können Benutzer Räume reservieren, bestehende Reservierungen anzeigen, bearbeiten oder löschen und Schlüssel für die Verwaltung und Einsicht von Reservierungen generieren.
+Ein Webapplikations-Projekt für die Verwaltung und Bearbeitung von Raumreservierungen. Mit dieser Anwendung können Benutzer Räume reservieren, bestehende Reservierungen anzeigen, bearbeiten oder löschen und Schlüssel für die Verwaltung und Einsicht von Reservierungen verwenden.
+
+---
 
 ## Funktionen
 
@@ -9,12 +11,16 @@ Ein Webapplikations-Projekt für die Verwaltung und Bearbeitung von Raumreservie
 - **Bearbeiten und Löschen**: Reservierungen über einen Private Key bearbeiten oder löschen.
 - **Öffentliche Ansicht**: Reservierungsdetails über einen Public Key einsehen.
 - **Reservierungsprüfung**: Sicherstellen, dass keine Raumüberschneidungen bei neuen Reservierungen auftreten.
-- **Schlüsselverwaltung**: Automatische Generierung von Private und Public Keys für die Verwaltung und Einsicht.
+- **Schlüsselverwaltung**: Private und Public Keys ermöglichen den Zugriff auf Reservierungen. Der Private Key erlaubt Bearbeitung und Löschung, während der Public Key nur Einsicht gewährt.
+
+---
 
 ## Voraussetzungen
 
-- .NET 8 oder höher
-- SQLite (integriert im Projekt)
+- **.NET 8** oder höher
+- **SQLite** (wird im Projekt integriert geliefert)
+
+---
 
 ## Installation
 
