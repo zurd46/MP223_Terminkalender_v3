@@ -19,7 +19,15 @@ Ein Webapplikations-Projekt für die Verwaltung und Bearbeitung von Raumreservie
 
 - **.NET 8** oder höher
 - **SQLite** (wird im Projekt integriert geliefert)
+- **Verwendete Plugins in Visual Studio Code:
+=> SQLite v0.14.1 
+=> SQLite3 Editor v1.0.197
+=> .NET Install Tool v2.2.3
+=> C# v2.55.29
+=> C# Dev Kit v1.14.14**
 
+Versionen:
+net8.0
 ---
 
 ## Installation
@@ -28,3 +36,4 @@ Ein Webapplikations-Projekt für die Verwaltung und Bearbeitung von Raumreservie
    ```bash
    git clone https://github.com/zurd46/MP223_Terminkalender_v3.git
    cd MP223_Terminkalender_v3
+   Terminal => dotnet run oder mit Run Button
