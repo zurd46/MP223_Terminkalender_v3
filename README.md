@@ -49,10 +49,6 @@ dotnet restore
 
 Die SQLite-Datenbank ist im Projektordner enthalten. Falls nicht, stellen Sie sicher, dass die Datei `reservations.db` vorhanden ist oder erstellen Sie eine neue SQLite-Datenbank. 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f975ff099b9e62f25be423bfad12d73d4c54929e
 ### 4. Projekt starten
 
 #### Über das Terminal:
