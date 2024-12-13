@@ -9,6 +9,52 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link href="/css/styles.css" rel="stylesheet">
 </head>
+<style>
+/* Toast-Overlay-Stil */
+.toast-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dunkler Hintergrund */
+  z-index: 1050;
+  display: none; /* Standardmäßig versteckt */
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-overlay.show {
+  display: flex !important; /* Überschreibt Bootstrap-Regeln */
+}
+
+/* Toast-Container */
+.toast-container {
+  z-index: 1060;
+  max-width: 500px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Toast-Körper */
+.toast-body {
+  font-size: 1.2rem; /* Bessere Lesbarkeit */
+}
+
+/* Höhere Spezifität zum Überschreiben von Bootstrap */
+.toast:not(.show) {
+  display: block !important; /* Verhindert Konflikte mit Bootstrap */
+}
+
+/* Animation für sanftes Einblenden */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+</style>
 <body data-bs-theme="dark">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -84,9 +130,34 @@
                 <small class="form-text text-muted">Bitte trennen Sie Teilnehmer durch Kommas. Nur Buchstaben sind erlaubt.</small>
             </div>
 
-            <!-- Speichern Button -->
-            <button type="submit" class="btn btn-primary">Speichern</button>
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Speichern</button>
+                <button type="button" class="btn btn-danger" id="deleteButton">Löschen</button>
+            </div>
         </form>
+    </div>
+
+    <!-- Toast und Overlay -->
+    <div id="toastOverlay" class="toast-overlay">
+        <div class="toast-container position-absolute top-50 start-50 translate-middle">
+            <div id="deleteToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-dark text-white">
+                    <strong class="me-auto">Löschen bestätigen</strong>
+                    <button type="button" class="btn-close btn-close-white" aria-label="Close" id="cancelToast"></button>
+                </div>
+                <div class="toast-body text-center fw-bold">
+                    Möchten Sie diese Reservation wirklich löschen?
+                    <div class="d-flex justify-content-center mt-3">
+                        <form method="post" action="/Reservation/Delete">
+                            <input type="hidden" name="Id" value="{{Id}}">
+                            <button type="submit" class="btn btn-light btn-sm me-3">Ja, löschen</button>
+                        </form>
+                        <button type="button" class="btn btn-secondary btn-sm" id="cancelToastButton">Abbrechen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -110,6 +181,33 @@
                 const errorMessageDiv = document.getElementById('errorMessage');
                 errorMessageDiv.classList.remove('d-none');
                 errorMessageDiv.textContent = "Die Teilnehmerliste darf nur Buchstaben enthalten, getrennt durch Kommas.";
+            }
+        });
+
+        // Elemente
+        const deleteButton = document.getElementById('deleteButton');
+        const toastOverlay = document.getElementById('toastOverlay');
+        const cancelToastButton = document.getElementById('cancelToastButton');
+        const cancelToast = document.getElementById('cancelToast');
+
+        // Toast anzeigen
+        deleteButton.addEventListener('click', () => {
+            toastOverlay.classList.add('show'); // Fügt die Klasse hinzu, um das Overlay sichtbar zu machen
+        });
+
+        // Toast schließen
+        const closeToast = () => {
+            toastOverlay.classList.remove('show'); // Entfernt die Klasse, um das Overlay auszublenden
+        };
+
+        // Schließen durch Klick auf Abbrechen oder das X-Symbol
+        cancelToastButton.addEventListener('click', closeToast);
+        cancelToast.addEventListener('click', closeToast);
+
+        // Schließen durch Klick außerhalb des Toasts
+        toastOverlay.addEventListener('click', (event) => {
+            if (event.target === toastOverlay) {
+                closeToast();
             }
         });
     </script>
