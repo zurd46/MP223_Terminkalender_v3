@@ -6,6 +6,7 @@
     <title>Reservation Details</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 <body data-bs-theme="dark">
     <!-- Navigation -->
@@ -31,31 +32,32 @@
 
     <!-- Hauptinhalt -->
     <div class="container my-5">
-        <h1 class="text-light text-center">Reservation Details</h1>
+        <h1 class="text-light">Reservation Details</h1>
+        <br /><br />
         <table class="table table-dark table-striped">
             <tbody>
                 <tr>
-                    <th>Teilnehmer</th>
+                    <th>Teilnehmer:</th>
                     <td>{{Participants}}</td>
                 </tr>
                 <tr>
-                    <th>Zimmer</th>
+                    <th>Zimmernummer:</th>
                     <td>{{RoomNumber}}</td>
                 </tr>
                 <tr>
-                    <th>Datum</th>
+                    <th>Datum:</th>
                     <td>{{Date}}</td>
                 </tr>
                 <tr>
-                    <th>Von</th>
+                    <th>Zeit von:</th>
                     <td>{{StartTime}}</td>
                 </tr>
                 <tr>
-                    <th>Bis</th>
+                    <th>Zeit bis:</th>
                     <td>{{EndTime}}</td>
                 </tr>
                 <tr>
-                    <th>Bemerkung</th>
+                    <th>Bemerkung:</th>
                     <td>{{Remarks}}</td>
                 </tr>
                 <!--<tr>
