@@ -49,7 +49,10 @@ dotnet restore
 
 Die SQLite-Datenbank ist im Projektordner enthalten. Falls nicht, stellen Sie sicher, dass die Datei `reservations.db` vorhanden ist oder erstellen Sie eine neue SQLite-Datenbank. 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> f975ff099b9e62f25be423bfad12d73d4c54929e
 ### 4. Projekt starten
 
 #### Über das Terminal:
@@ -67,7 +70,6 @@ Die SQLite-Datenbank ist im Projektordner enthalten. Falls nicht, stellen Sie si
 
 1. Öffnen Sie den Projektordner in Visual Studio Code.
 2. Drücken Sie `F5` oder klicken Sie auf den **Run**-Button oben rechts.
-3. Wählen Sie die Konfiguration `Launch` aus.
 
 ---
 
@@ -83,43 +85,6 @@ Now listening on: http://localhost:5000
 
 ---
 
-## Optional: Automatisches Debugging in Visual Studio Code einrichten
-
-1. Erstellen Sie im Ordner `.vscode` eine Datei namens `launch.json`, falls sie nicht existiert.
-2. Fügen Sie die folgende Konfiguration hinzu:
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": ".NET Core Launch",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net8.0/MP223_Terminkalender_v3.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
-            "serverReadyAction": {
-                "action": "openExternally",
-                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
-            },
-            "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            },
-            "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Views"
-            }
-        }
-    ]
-}
-```
-
-Damit können Sie die Anwendung direkt im Debug-Modus starten.
-
----
-
 ## Verzeichnisstruktur
 
 Die grundlegende Verzeichnisstruktur des Projekts sieht wie folgt aus:
@@ -127,18 +92,35 @@ Die grundlegende Verzeichnisstruktur des Projekts sieht wie folgt aus:
 ```
 MP223_Terminkalender_v3/
 ├── Controllers/
+│   └── HomeController.cs
+│   └── ReservationController.cs
+├── Data/
+│   └── ApplicationDbContext.cs
+├── Doku/
+│   └── ERD_Datenbank.png
+│   └── Raumreservierungs_ULM.png
+│   └── ÜK_MP223_Dokumentation.docx
+├── Migrations (Datenbankmigrationen)
 ├── Models/
+│   └── Reservation.cs
+├── Properties/
+│   └── launchSettings.json
 ├── Views/
+│   └── Home/
+│       ├── Index.html
 │   └── Reservation/
-│       ├── Edit.html
-│       ├── List.html
 │       ├── Create.html
+│       ├── Edit.html
+│       ├── InvalidKey.html
+│       ├── Success.html
+│       ├── View.html
 ├── wwwroot/
 │   ├── css/
-│   ├── js/
-│   └── images/
+│       ├── styles.css
 ├── Program.cs
-├── appsettings.json
+├── MP223_Terminkalender_v3.csproj
+├── MP223_Terminkalender_v3.sln
+├── README.md
 ├── reservations.db
 ```
 
