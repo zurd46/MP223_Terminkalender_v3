@@ -130,4 +130,3 @@ MP223_Terminkalender_v3/
 
 ---
 
-Falls Sie weitere Anpassungen oder Fragen haben, lassen Sie es mich wissen!
