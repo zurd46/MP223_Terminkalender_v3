@@ -49,19 +49,6 @@ dotnet restore
 
 Die SQLite-Datenbank ist im Projektordner enthalten. Falls nicht, stellen Sie sicher, dass die Datei `reservations.db` vorhanden ist oder erstellen Sie eine neue SQLite-Datenbank. 
 
-Falls die Datenbank manuell initialisiert werden muss, verwenden Sie ein SQLite-Tool oder das Terminal mit folgendem SQL-Befehl:
-
-```sql
-CREATE TABLE Reservations (
-    Id INTEGER PRIMARY KEY,
-    RoomNumber TEXT NOT NULL,
-    Participant TEXT NOT NULL,
-    StartDate DATETIME NOT NULL,
-    EndDate DATETIME NOT NULL,
-    PublicKey TEXT NOT NULL,
-    PrivateKey TEXT NOT NULL
-);
-```
 
 ### 4. Projekt starten
 
