@@ -7,7 +7,6 @@ Ein Webapplikations-Projekt für die Verwaltung und Bearbeitung von Raumreservie
 ## Funktionen
 
 - **Reservierungen erstellen**: Neue Reservierungen mit Teilnehmern, Datum, Zeit und Zimmernummer hinzufügen.
-- **Reservierungen anzeigen**: Liste aller bestehenden Reservierungen anzeigen.
 - **Bearbeiten und Löschen**: Reservierungen über einen Private Key bearbeiten oder löschen.
 - **Öffentliche Ansicht**: Reservierungsdetails über einen Public Key einsehen.
 - **Reservierungsprüfung**: Sicherstellen, dass keine Raumüberschneidungen bei neuen Reservierungen auftreten.
